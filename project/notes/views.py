@@ -18,7 +18,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 class NoteViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows Notes to be viewed or edited.
+    API endpoint that allows notes to be viewed or edited.
     """
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
@@ -26,7 +26,7 @@ class NoteViewSet(viewsets.ModelViewSet):
 
 class NoteItemViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows Notes to be viewed or edited.
+    API endpoint that allows note items to be viewed or edited.
     """
     queryset = NoteItem.objects.all()
     serializer_class = NoteItemSerializer
