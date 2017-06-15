@@ -1,7 +1,11 @@
-from django.shortcuts import render
 from django.contrib.auth.models import User
 from rest_framework import viewsets
-from project.notes.serializers import UserSerializer
+
+# MODEL IMPORTS
+from project.notes.models import Note, NoteItem
+
+# SERIALIZER IMPORTS
+from project.notes.serializers import UserSerializer, NoteSerializer, NoteItemSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -10,3 +14,19 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+class NoteViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Notes to be viewed or edited.
+    """
+    queryset = Note.objects.all()
+    serializer_class = NoteSerializer
+
+
+class NoteItemViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows Notes to be viewed or edited.
+    """
+    queryset = NoteItem.objects.all()
+    serializer_class = NoteItemSerializer

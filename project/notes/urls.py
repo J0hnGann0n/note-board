@@ -4,6 +4,8 @@ from project.notes import views
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
+router.register(r'notes', views.NoteViewSet)
+router.register(r'items', views.NoteItemViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
