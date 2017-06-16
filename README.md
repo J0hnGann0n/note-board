@@ -1,2 +1,2 @@
-# modern-django
-Modern Django: A Guide on How to Deploy Django-based Web Applications in 2017
+# note-board
+Note Board: A Django RESTful api for managing a note keeping system
