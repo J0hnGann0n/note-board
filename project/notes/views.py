@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.shortcuts import render
 from rest_framework import viewsets
 
 # MODEL IMPORTS
@@ -10,8 +11,8 @@ from project.notes.serializers import UserSerializer, NoteSerializer, NoteItemSe
 
 def board(request):
     user = request.user
-    template_name =
-    return
+    template_name = 'notes/board.html'
+    return render(template_name, locals())
 
 class UserViewSet(viewsets.ModelViewSet):
     """
