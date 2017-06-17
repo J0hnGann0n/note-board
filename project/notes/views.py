@@ -12,7 +12,8 @@ from project.notes.serializers import UserSerializer, NoteSerializer, NoteItemSe
 def board(request):
     user = request.user
     template_name = 'notes/board.html'
-    return render(template_name, locals())
+    return render(request, template_name, locals())
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """

@@ -19,7 +19,7 @@ env = environ.Env()
 
 ROOT_DIR = root
 APPS_DIR = ROOT_DIR.path('project')
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'board'
 
 # This section added from an update to standards in CookieCutter Django to ensure no errors are encountered at runserver/migrations
 READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
