@@ -8,6 +8,11 @@ from project.notes.models import Note, NoteItem
 from project.notes.serializers import UserSerializer, NoteSerializer, NoteItemSerializer
 
 
+def board(request):
+    user = request.user
+    template_name =
+    return
+
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.

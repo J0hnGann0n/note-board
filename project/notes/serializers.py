@@ -18,11 +18,11 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Note
-        fields = ('id', 'owner', 'title', 'items')
+        fields = ('pk', 'owner', 'title', 'items')
 
 
 class NoteItemSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = NoteItem
-        fields = ('id', 'note', 'text')
+        fields = ('pk', 'note', 'text')
