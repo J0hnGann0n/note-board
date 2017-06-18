@@ -1,8 +1,10 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 
 # MODEL IMPORTS
+from rest_framework.response import Response
+
 from project.notes.models import Note, NoteItem
 
 # SERIALIZER IMPORTS
@@ -27,9 +29,22 @@ class NoteViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows notes to be viewed or edited.
     """
-    queryset = Note.objects.all()
-    serializer_class = NoteSerializer
 
+    queryset = Note.objects.all()
+
+    def get(self, request, format=None):
+        user = request.user
+        note = Note.objects.filter(owner=user)
+        serializer = NoteSerializer(note, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        user = request.user
+        serializer = NoteSerializer(data=request.data, context={'owner': user})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class NoteItemViewSet(viewsets.ModelViewSet):
     """
