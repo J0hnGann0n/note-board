@@ -33,10 +33,10 @@ if READ_DOT_ENV_FILE:
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = '*e*$w(sb#kdeeb7m@vq%yv7(^l(b^wm_osd!or)!nykvww(^b2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DJANGO_DEBUG', False)
+DEBUG = env.bool('DJANGO_DEBUG', True)
 
 # Application definition
 DJANGO_APPS = (
