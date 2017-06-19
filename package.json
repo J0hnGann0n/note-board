@@ -1,0 +1,23 @@
+{
+  "name": "note-board",
+  "version": "1.0.0",
+  "description": "Note Board: A Django RESTful api for managing a note keeping system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J0hnGann0n/note-board.git"
+  },
+  "author": "John Gannon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/J0hnGann0n/note-board/issues"
+  },
+  "homepage": "https://github.com/J0hnGann0n/note-board#readme",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  }
+}
