@@ -20,6 +20,11 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
         model = Note
         fields = ('pk', 'owner', 'title', 'items')
 
+    def create(self, validated_data):
+        title = validated_data.get('title', None)
+        owner = self.context.get('user')
+        return Note.objects.create(owner=owner, title=title)
+
 
 class NoteItemSerializer(serializers.HyperlinkedModelSerializer):
 

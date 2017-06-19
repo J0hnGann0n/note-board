@@ -18,4 +18,7 @@ urlpatterns = [
     url(r'^login/$', auth_views.login, {'template_name': 'registration/login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
+
+    # Main Board
+    url(r'^board/$', views.board, name='board')
 ]
