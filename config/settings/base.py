@@ -50,6 +50,7 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'rest_framework',
+    'pipeline',
 )
 
 LOCAL_APPS = (
@@ -148,7 +149,47 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
 )
+
+# browserify-specific
+PIPELINE_COMPILERS = (
+    'pipeline_browserify.compiler.BrowserifyCompiler',
+)
+
+PIPELINE_CSS_COMPRESSOR = 'pipeline.compressors.NoopCompressor'
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.uglifyjs.UglifyJSCompressor'
+
+if DEBUG:
+    PIPELINE_BROWSERIFY_ARGUMENTS = '-t babelify'
+
+PIPELINE = {
+    'STYLESHEETS': {
+        'all_css': {
+            'source_filenames': (
+                'css/*.css',
+                'bower_components/bootstrap/dist/css/bootstrap.min.css'
+            ),
+            'output_filename': 'css/noteboard.css',
+            'extra_context': {
+                'media': 'screen,projection',
+            },
+        },
+    },
+    'JAVASCRIPT': {
+        'all_js': {
+            'source_filenames': (
+                'js/*.js',
+                'bower_components/jquery/dist/jquery.js',
+                'bower_components/react/react.min.js',
+                'bower_components/bootstrap/dist/js/bootstrap.min.js',
+            ),
+            'output_filename': 'js/noteboard.js',
+        }
+    }
+}
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
 MEDIA_URL = '/media/'
 

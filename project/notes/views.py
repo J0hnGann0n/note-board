@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, generics
 
 # MODEL IMPORTS
 from rest_framework.response import Response
@@ -31,11 +31,13 @@ class NoteViewSet(viewsets.ModelViewSet):
     """
 
     queryset = Note.objects.all()
+    serializer_class = NoteSerializer
 
     def get(self, request, format=None):
         user = request.user
         note = Note.objects.filter(owner=user)
         serializer = NoteSerializer(note, many=True)
+
         return Response(serializer.data)
 
     def post(self, request, format=None):
@@ -44,6 +46,7 @@ class NoteViewSet(viewsets.ModelViewSet):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class NoteItemViewSet(viewsets.ModelViewSet):

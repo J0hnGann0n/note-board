@@ -1,0 +1,17 @@
+{
+  "name": "note-board",
+  "description": "Note Board: A Django RESTful api for managing a note keeping system",
+  "main": "index.js",
+  "authors": [
+    "John Gannon"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/J0hnGann0n/modern-django",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

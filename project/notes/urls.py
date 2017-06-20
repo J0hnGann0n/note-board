@@ -3,6 +3,7 @@ from rest_framework import routers
 from project.notes import views
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from rest_framework.urlpatterns import format_suffix_patterns
 
 # API Endpoints
 router = routers.DefaultRouter()
